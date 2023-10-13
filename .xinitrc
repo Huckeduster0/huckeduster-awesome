@@ -4,6 +4,7 @@
 
 # Setting Wallpaper
 # xsetbg -fullscreen ~/Pictures/wallpapers/wallpaper.png
+xsetbg -fullscreen ~/Pictures/wallpapers/wallpaper.png
 
 # Starting the truely awesome window manager
 exec /usr/bin/awesome
