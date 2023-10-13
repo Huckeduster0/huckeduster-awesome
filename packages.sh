@@ -1,5 +1,8 @@
 # !/bin/bash
 
+# updating before doing anything else
+sudo apt update -y && sudo apt upgrade -y 
+
 # installing and fetching nala
 sudo apt install nala -y 
 sudo nala fetch 
