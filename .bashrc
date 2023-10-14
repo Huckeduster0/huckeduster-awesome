@@ -123,3 +123,12 @@ fi
 
 # fastfetch
 neofetch 
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# shell prompt customization
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# default: PS1="\u@\h:\w$ "
+
+PS1="\n\t - \u@\h:\w\n $ "
