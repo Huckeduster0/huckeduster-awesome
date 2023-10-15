@@ -1,5 +1,10 @@
 # !/bin/bash
 
+# creating .config folder if not exists
+if [ ! -d ~/.config ]; then
+	mkdir ~/.config
+fi
+
 # moving existing dotfiles
 # .bashrc
 if [ -f ~/.bashrc ]; then
@@ -17,10 +22,10 @@ if [ -f ~/.xsessionrc ]; then
 fi
 
 # linking new dotfiles
-ln -s .bashrc ~/.bashrc
-ln -s .bash_aliases ~/.bash_aliases
-ln -s .xinitrc ~/.xinitrc
-ln -s .xsessionrc ~/.xsessionrc
+ln -s ~/gits.d/Huckeduster-awesome/.bashrc ~/.bashrc
+ln -s ~/gits.d/Huckeduster-awesome/.bash_aliases ~/.bash_aliases
+ln -s ~/gits.d/Huckeduster-awesome/.xinitrc ~/.xinitrc
+ln -s ~/gits.d/Huckeduster-awesome/.xsessionrc ~/.xsessionrc
 
 #########################################################
 
@@ -34,14 +39,23 @@ fi
 if [ -d ~/.config/neofetch ]; then
 	mv ~/.config/neofetch ~/.config/neofetch.old
 fi
+if [ -d ~/.config/rofi ]; then
+	mv ~/.config/rofi ~/.config/rofi.old
+fi
 
 # linking new config folders
-ln -s .config/alacritty ~/.config/alacritty
-ln -s .config/awesome ~/.config/awesome
-ln -s .config/neofetch ~/.config/neofetch
+ln -s ~/gits.d/Huckeduster-awesome/.config/alacritty ~/.config/alacritty
+ln -s ~/gits.d/Huckeduster-awesome/.config/awesome ~/.config/awesome
+ln -s ~/gits.d/Huckeduster-awesome/.config/neofetch ~/.config/neofetch
+ln -s ~/gits.d/Huckeduster-awesome/.config/rofi ~/.config/rofi
 
 #########################################################
 
 # linking SF fonts 
 mkdir -p ~/.local/share/fonts/SF-fonts 
 ln -s ~/gits.d/SF-fonts/SF* $HOME/.local/share/fonts/SF-fonts/
+
+# linking rofi-themes, selecting rofi-themes
+mkdir -p ~/.local/share/rofi/themes
+ln -s ~/gits.d/rofi-collection/* ~/.local/share/rofi/themes/
+rofi-theme-selector

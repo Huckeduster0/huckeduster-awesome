@@ -1,7 +1,0 @@
-- fix links to point do the correct files
-- add -y option when installing with nala 
-- add creation of .config-directory - ubuntu server doesnt do that by default 
-- check license -> especially ubuntu wallpapers
-
-
-- customize bash 

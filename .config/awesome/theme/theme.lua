@@ -1,6 +1,6 @@
------------------------------------
--- Ubuntu inspired awesome theme --
------------------------------------
+-----------------------------------------
+-- gruvbox-dark inspired awesome theme --
+-----------------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -9,40 +9,62 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
--- focus colors
-deep_orange = "#e95420"
-rich_purple = "#7f1b6c"
-grey_green  = "#8cad8a"
-red         = "#ff0505"
+-- ------------------------------------
+-- Defining colors
+-- ------------------------------------
 
--- whites / grays
-dark_grey   = "#333333"
-light_grey  = "#888888" 
-white       = "#ffffff"
+background     = '#282828'
+background2    = '#a89984'
+foreground     = '#ebdbb2'
 
--- switch between focus colors here:
--- color_focus = rich_purple
--- color_focus = deep_orange
-color_focus = grey_green 
+-- Normal colors
+black          = '#282828'
+red            = '#cc241d'
+green          = '#98971a'
+yellow         = '#d79921'
+blue           = '#458588'
+magenta        = '#b16286'
+cyan           = '#689d6a'
+white          = '#a89984'
+
+-- Bright colors
+bright_black   = '#928374'
+bright_red     = '#fb4934'
+bright_green   = '#b8bb26'
+bright_yellow  = '#fabd2f'
+bright_blue    = '#83a598'
+bright_magenta = '#d3869b'
+bright_cyan    = '#8ec07c'
+bright_white   = '#ebdbb2'
+
+-- Dark colors
+dark_blue      = '#151e1a'
+
+-- ------------------------------------
+-- Setting colors
+-- ------------------------------------
+
+-- focus color
+color_focus = bright_blue 
 
 local theme = {}
 
 theme.font          = "SF Mono 8"
 
-theme.bg_normal     = dark_grey
+theme.bg_normal     = background
 theme.bg_focus      = color_focus
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = light_grey 
-theme.bg_systray    = light_grey
+theme.bg_urgent     = red
+theme.bg_minimize   = background2
+theme.bg_systray    = background2
 
-theme.fg_normal     = light_grey
-theme.fg_focus      = white
-theme.fg_urgent     = white
-theme.fg_minimize   = white
+theme.fg_normal     = foreground
+theme.fg_focus      = foreground 
+theme.fg_urgent     = foregorund
+theme.fg_minimize   = background
 
 theme.useless_gap   = dpi(4)
 theme.border_width  = dpi(2)
-theme.border_normal = dark_grey
+theme.border_normal = background
 theme.border_focus  = color_focus
 theme.border_marked = color_focus
 

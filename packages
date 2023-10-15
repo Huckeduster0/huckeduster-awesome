@@ -13,3 +13,7 @@ alacritty
 nitrogen
 ranger
 thunar eog
+fonts-jetbrains-mono
+#flatpak
+dbus-x11
+tree

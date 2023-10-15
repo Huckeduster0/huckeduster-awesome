@@ -130,5 +130,19 @@ neofetch
 # shell prompt customization
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # default: PS1="\u@\h:\w$ "
+# PS1="\n\t - \u@\h:\w\n $ "
+PS1="\n[ \t - \u@\h \w ] \n $ "
 
-PS1="\n\t - \u@\h:\w\n $ "
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Adding folders in home dir to $PATH
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+if [ -d "$HOME/.bin" ] ; then
+	PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ; then
+	PATH="$HOME/.local/bin:$PATH"
+fi
