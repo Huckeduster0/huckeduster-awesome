@@ -191,6 +191,27 @@ local function set_wallpaper(s)
     end
 end
 
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+
+local seperator = wibox.widget{
+    markup = " ",
+    halign = "center",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+local seperator_big = wibox.widget{
+    markup = "  ~~  ",
+    halign = "center",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -239,10 +260,33 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+	  --  spacing = dpi(10),
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            seperator_big,
+--            mykeyboardlayout,
             wibox.widget.systray(),
+	    seperator,
+	    fs_widget(),
+	    seperator,
+	    ram_widget(),
+	    seperator,
+	    cpu_widget({
+		step_width = 4,
+		step_spacing = 1,
+	        width = 40,
+		enable_kill_button = true 
+	    }),
             mytextclock,
+	    seperator,
+            batteryarc_widget({
+                show_current_level = true,
+                arc_thickness = 2,
+		size = 24,
+		font = "SF Mono 8",
+		warning_msg_position = top_right
+            }),
+	    seperator,
+--	    battery_widget(),
             s.mylayoutbox,
         },
     }

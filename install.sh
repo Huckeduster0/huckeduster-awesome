@@ -42,6 +42,8 @@ fi
 # cloning git repos
 git clone https://github.com/thelioncape/San-Francisco-family.git --depth 1 ~/gits.d/SF-fonts
 git clone https://github.com/Murzchnvok/rofi-collection --depth 1 ~/gits.d/rofi-collection
+git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/gits.d/awesome-wm-widgets
+git clone https://github.com/horst3180/arc-icon-theme --depth 1 ~/gits.d/arc-icon-theme
 
 
 #######################################################################
@@ -65,9 +67,6 @@ fi
 if [ -f ~/.xinitrc ]; then 
 	mv ~/.xinitrc ~/.xinitrc.old
 fi
-if [ -f ~/.xsessionrc ]; then 
-	mv ~/.xsessionrc ~/.xsessionrc.old
-fi
 
 # linking new dotfiles
 ln -s ~/gits.d/Huckeduster-awesome/.bashrc ~/.bashrc
@@ -90,18 +89,26 @@ fi
 if [ -d ~/.config/rofi ]; then
 	mv ~/.config/rofi ~/.config/rofi.old
 fi
+if [ -d ~/.config/awesome/awesome-wm-widgets ]; then 
+	rm -rf .config/awesome/awesome-wm-widgets
+fi
 
 # linking new config folders
 ln -s ~/gits.d/Huckeduster-awesome/.config/alacritty ~/.config/alacritty
 ln -s ~/gits.d/Huckeduster-awesome/.config/awesome ~/.config/awesome
 ln -s ~/gits.d/Huckeduster-awesome/.config/neofetch ~/.config/neofetch
 ln -s ~/gits.d/Huckeduster-awesome/.config/rofi ~/.config/rofi
+ln -s ~/gits.d/awesome-wm-widgets/.config/awesome ~/.config/awesome/awesome-wm-widgets
 
 #########################################################
 
 # linking SF fonts 
 mkdir -p ~/.local/share/fonts/SF-fonts 
 ln -s ~/gits.d/SF-fonts/SF* $HOME/.local/share/fonts/SF-fonts/
+
+# linking arc icon theme
+mkdir -p ~/.local/share/icons
+sudo ln -s ~/gits.d/arc-icon-theme/Arc /usr/share/icons/Arc
 
 # linking rofi-themes, selecting rofi-themes
 mkdir -p ~/.local/share/rofi/themes
