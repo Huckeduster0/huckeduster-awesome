@@ -257,7 +257,15 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
-
+-- Grab focus on first client on screen
+function grab_focus()
+    local all_clients = client.get()
+    for i, c in pairs(all_clients) do
+        if c:isvisible() and c.class ~= "Conky" then
+            client.focus = c
+        end
+    end
+end
 
 
 
@@ -410,7 +418,12 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey }, "q",                 function (c) c:kill()                         end,
+    awful.key({ modkey }, "q",                 
+        function (c) 
+	    c:kill()
+	    grab_focus()
+        end,
+--	grab_focus(),
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -468,6 +481,7 @@ for i = 1, 9 do
                         if tag then
                            tag:view_only()
                         end
+			grab_focus()
                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
@@ -659,6 +673,7 @@ autorun = true
 autorunApps = 
 {
 	"picom",
+	"nitrogen --restore"
 --	"xrandr -s 2560x1440",
 }
 if autorun then 

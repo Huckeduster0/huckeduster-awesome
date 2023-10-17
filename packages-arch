@@ -1,9 +1,13 @@
 vim nano bash neofetch
-xorg
+xorg xorg-xinit xterm
 git base-devel
-xorg-xinit
 tldr
 alacritty
-xterm
 rofi
 github-cli
+exo garcon thunar thunar-volman tumbler xfce4-appfinder xfce4-panel xfce4-power-manager xfce4-session xfce4-settings xfce4-terminal xfconf xfdesktop xfwm4 xfwm4-themes
+picom nitrogen
+btop htop i3lock xclip xorg-clipboard lxappearance xorg-xbacklight flameshot network-manager-applet fzf 
+cmake gcc 
+ranger tree
+ttf-jetbrains-mono
