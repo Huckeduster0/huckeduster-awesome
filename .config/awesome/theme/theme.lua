@@ -49,7 +49,7 @@ color_focus = bright_blue
 
 local theme = {}
 
-theme.font          = "SF Mono 8"
+theme.font          = "SF Mono 13"
 
 theme.bg_normal     = background
 theme.bg_focus      = color_focus
@@ -62,8 +62,8 @@ theme.fg_focus      = foreground
 theme.fg_urgent     = foregorund
 theme.fg_minimize   = background
 
-theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(2)
+theme.useless_gap   = dpi(8)
+theme.border_width  = dpi(3)
 theme.border_normal = background
 theme.border_focus  = color_focus
 theme.border_marked = color_focus
